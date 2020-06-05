@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>Predict Insurance Bill</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link type="text/css" rel="stylesheet" href="{{ url_for('static', filename='./style.css') }}">
+  
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict the number of empty rooms in a shelter</h1>
+
+     <!-- Form to enter new data for predictions  -->
+    <form action="{{ url_for('predict')}}"method="POST">
+        
+        
+        
+        
+      <input type="number" name="ID" placeholder="ID" required="required" /><br>
+    	<input type="date" name="OCCUPANCY_DATE" placeholder="OCCUPANCY_DATE" required="required" /><br>
+        <input type="number" name="Existing Shelters In Area" placeholder="Existing Shelters In Area" required="required" /><br>
+        <input type="number" name="Max Temp (°C)" placeholder="Max Temp (°C)" required="required" /><br>
+        <input type="number" name="Min Temp (°C)" placeholder="Min Temp (°C)" required="required" /><br>
+        <input type="text" name="ORGANIZATION_NAME" placeholder="ORGANIZATION_NAME" required="required" /><br>
+        <input type="text" name="SHELTER_NAME" placeholder="SHELTER_NAME" required="required" /><br>
+        <input type="text" name="SHELTER_ADDRESS" placeholder="SHELTER_ADDRESS" required="required" /><br>
+        <input type="text" name="SHELTER_CITY" placeholder="SHELTER_CITY" required="required" /><br>
+        <input type="text" name="SHELTER_PROVINCE" placeholder="SHELTER_PROVINCE" required="required" /><br>
+        <input type="text" name="ORGANIZATION_NAME" placeholder="ORGANIZATION_NAME" required="required" /><br>
+        <input type="text" name="SHELTER_POSTAL_CODE" placeholder="SSHELTER_POSTAL_CODE" required="required" /><br>
+        <input type="text" name="FACILITY_NAME" placeholder="FACILITY_NAME" required="required" /><br>
+        <input type="text" name="SPROGRAM_NAME" placeholder="PROGRAM_NAME" required="required" /><br>
+        <input type="text" name="SECTOR" placeholder="SECTOR" required="required" /><br>
+        <input type="number" name="SOCCUPANCY" placeholder="OCCUPANCY" required="required" /><br>
+        <input type="text" name="CAPACITY" placeholder="CAPACITY" required="required" /><br>
+     
+        
+        
+        
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+  
+   
+ </div>
+ {{pred}}
+
+</body>
+</html>
