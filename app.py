@@ -9,7 +9,7 @@ app = Flask(__name__)
 model = load_model('finalized_model')
 # cols = ['age', 'sex', 'bmi', 'children', 'smoker', 'region']
 
-cols = ['ID','OCCUPANCY_DATE','Existing Shelters In Area','Max Temp (\'b0C)','Min Temp (\'b0C)','ORGANIZATION_NAME','HELTER_NAME','SHELTER_ADDRESS','SHELTER_CITY','SHELTER_PROVINCE','SHELTER_POSTAL_CODE','FACILITY_NAME','PROGRAM_NAME' ,'SECTOR' ,'OCCUPANCY' ,'CAPACITY']
+cols = ['ID','OCCUPANCY_DATE','Existing Shelters In Area','Max Temp (C)','Min Temp (C)','ORGANIZATION_NAME','HELTER_NAME','SHELTER_ADDRESS','SHELTER_CITY','SHELTER_PROVINCE','SHELTER_POSTAL_CODE','FACILITY_NAME','PROGRAM_NAME' ,'SECTOR' ,'OCCUPANCY' ,'CAPACITY']
 @app.route('/')
 def home():
     return render_template("home.html")
