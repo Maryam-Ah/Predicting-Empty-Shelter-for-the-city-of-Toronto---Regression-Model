@@ -9,8 +9,7 @@ app = Flask(__name__)
 model = load_model('finalized_model')
 # cols = ['age', 'sex', 'bmi', 'children', 'smoker', 'region']
 
-cols = ['ID','OCCUPANCY_DATE','Existing Shelters In Area','Max Temp (\'b0C)','Min Temp (\'b0C)','ORGANIZATION_NAME\'92,\'92SHELTER_NAME\'92,\'91SHELTER_ADDRESS\'92,\'91SHELTER_CITY\'92,\'91SHELTER_PROVINCE\'92,\'91ORGANIZATION_NAME\'92,\'92SHELTER_POSTAL_CODE\'92,\'91FACILITY_NAME\'92,\'91SPROGRAM_NAME\'92 ,\'91SECTOR\'92 ,\'91SOCCUPANCY\'92 ,\'91CAPACITY\'92]\
-
+cols = ['ID','OCCUPANCY_DATE','Existing Shelters In Area','Max Temp (\'b0C)','Min Temp (\'b0C)','ORGANIZATION_NAME','HELTER_NAME','SHELTER_ADDRESS','SHELTER_CITY','SHELTER_PROVINCE','SHELTER_POSTAL_CODE','FACILITY_NAME','PROGRAM_NAME' ,'SECTOR' ,'OCCUPANCY' ,'CAPACITY']
 @app.route('/')
 def home():
     return render_template("home.html")
@@ -22,7 +21,7 @@ def predict():
     data_unseen = pd.DataFrame([final], columns = cols)
     prediction = predict_model(model, data=data_unseen, round = 0)
     prediction = int(prediction.Label[0])
-    return render_template('home.html',pred='Expected Bill will be {}'.format(prediction))
+    return render_template('home.html',pred='The number of empty rooms is {}'.format(prediction))
 
 @app.route('/predict_api',methods=['POST'])
 def predict_api():
