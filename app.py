@@ -89,7 +89,8 @@ from sklearn.model_selection import cross_val_score
 
 app = Flask(__name__)
 
-model = load_model('finalized_model')
+# model = load_model('finalized_model')
+model = joblib.load('finalized_model.pkl')
 # cols = ['age', 'sex', 'bmi', 'children', 'smoker', 'region']
 
 cols = ['ID','OCCUPANCY_DATE','Existing Shelters In Area','Max Temp (C)','Min Temp (C)','ORGANIZATION_NAME','SHELTER_NAME','SHELTER_ADDRESS','SHELTER_CITY','SHELTER_PROVINCE','SHELTER_POSTAL_CODE','FACILITY_NAME','PROGRAM_NAME' ,'SECTOR' ,'CAPACITY']
