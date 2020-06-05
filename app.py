@@ -3,6 +3,14 @@ from pycaret.regression import *
 import pandas as pd
 import pickle
 import numpy as np
+from sklearn.linear_model import LinearRegression
+from sklearn.tree import DecisionTreeRegressor
+from sklearn.model_selection import GridSearchCV
+from sklearn.ensemble import RandomForestRegressor, VotingRegressor
+from sklearn.svm import SVR
+from sklearn.linear_model import Ridge
+from sklearn.linear_model import Lasso
+from sklearn.model_selection import cross_val_score
 
 app = Flask(__name__)
 
@@ -19,7 +27,7 @@ def predict():
     int_features = [x for x in request.form.values()]
     final = np.array(int_features)
     data_unseen = pd.DataFrame([final], columns = cols)
-    prediction = predict_model(model, data=data_unseen, round = 0)
+    prediction = model.predict(model, data=data_unseen, round = 0)
     prediction = int(prediction.Label[0])
     return render_template('home.html',pred='The number of empty rooms is {}'.format(prediction))
 
